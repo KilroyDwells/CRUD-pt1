@@ -1,0 +1,85 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Jul 22 19:30:19 2022
+
+@author: Felipe
+"""
+
+from datetime import datetime
+from openpyxl import load_workbook
+
+def leer(ruta: str, extraer: str):
+    Archivo_Exccel = load_workbook(ruta)
+    Hoja_datos= Archivo_Exccel["Datos del crud"]
+    Hoja_datos = Hoja_datos["A2":"F"+str(Hoja_datos.max_row)]
+    
+    info={}
+    
+    for i in Hoja_datos:
+        
+        if isinstance(i[0].value, int):
+            info.setdefault(i[0].value,{"tarea": i[1].value,"descripcion": i[2].value,
+                                        "estado": i[1].value,"fecha de inicio" : i[1].value,
+                                        "fecha de finalizacion": i[1].value}
+                            
+    if not(extraer=="todo"):
+        info = filtrar(info, extraer)
+        
+    for i in info:
+        print("******** Tarea *******")
+        print("Id"+str(i)+"\n"+"Titulo: "+str(info[i]["tarea"])+"\n"+"Descripcion: "
+        +str(info[i]["descripcion"])+"\n"+"Estado: "+str(info[i]["estado"])
+        +"\n"+"Fecha de creación: "+str(info[i]["fecha de inicio"])
+        +"\n"+"Fecha de finalizacion: "+str(info[i]["fecha de finalizacion"])
+        print()
+        
+        def filtrar(info:dict, filtro:str):
+            aux = {}
+            
+            for i in info
+                if info[i]["estado"]== filtro:
+                    aux.setdefault(i,info[i])
+            return aux 
+        
+def actualizar(ruta:str, identificados:int,datos_actualizados:dict):
+    Archivo_Exccel = load_workbook(ruta)
+    Hoja_datos = Archivo_Exccel["Datos del crud"]
+    Hoja_datos = Hoja_datos["A2":"F"+ str(Hoja_datos.max_row)]
+    hoja = Archivo_Exccel.active
+    
+    titulo=2
+    descripcion=3
+    estado=4
+    fecha_incio=5
+    fecha_Finalizado=6
+    encontro=False
+    for i in Hoja_datos:
+        if i[0].value==identificador:
+            fila=i[0].row
+            encontro=True
+            for d in datos_actualizados:
+                if d== "titulo" and not 
+                
+                
+def agregar(ruta:int, datos:dict):
+    Archivo_Exccel = load_workbook(ruta)
+    Hoja_datos = Archivo_Exccel["Datos del crud"]
+    Hoja_datos = Hoja_datos["A2": "F"+str(Hoja_datos.max_row+1)]
+    hoja= Archivo_Exccel.active
+    
+    titulo=2
+    descripcion=3
+    estado=4
+    fecha_incio=5
+    fecha_Finalizado=6
+    for i in Hoja_datos:
+        
+        if not( isinstances(i[0].value, int)):
+            identificador=i[0].row
+            hoja.cell(row=identificador, column=1).value=identificador-1
+            hoja.cell(row=identificador, column=titulo).value=datos["titulo"]
+            hoja.cell(row=identificador, column=descripcion).value=datos["descripcion"]
+            hoja.cell(row=identificador, column=estado).value=datos["estado"]
+            hoja.cell(row=identificador, column=fecha_inicio).value=datos["fecha inicio"]
+            hoja.cell(row=identificador, column=fecha_finalizado).value=datos["fecha finalizado"]
+        
