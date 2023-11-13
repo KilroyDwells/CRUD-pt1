@@ -1,0 +1,51 @@
+Created on Tue Jul 26 19:19:38 2022
+
+@author: Felipe
+"""
+nombre = "Liliana"
+
+cadena_formateada = "¡Hola %s!" % nombre
+
+print (cadena_formateada)
+
+print("Esto es una letra M: %s" % "M")
+print("Esto es un numero 8: %s" % 8)
+print("Esto es una lista: %s" % [10, 30, 100])
+
+nombre1 = "Liliana"
+
+nombre2 = "Catalina"
+
+print("¡Hola %s y %s bienvenidas!" % (nombre1, nombre2))
+
+Primero_meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio"]
+
+for i in Primero_meses:
+    
+    print("+ %10s * %-10s *" % (i,i))
+    
+hexadecimal = 0XA0
+decimal = 10.5
+
+print("El numero hexadecimal es %d y el decimal es %d" %(hexadecimal, decimal))
+
+
+numero = 1000 
+
+print("%d en hexadecimal (minusculas) es %x" %(numero, numero))
+print("%d en hexadecimal (minusculas) es %X" %(numero, numero))
+print("%d en hexadecimal (minusculas) es %e" %(numero, numero))
+print("%d en hexadecimal (minusculas) es %E" %(numero, numero))
+
+tercio = 1.0 / 3
+
+print("Un tercio (sin decimales) es %d" % tercio)
+print("Un tercio es %f" % tercio)
+
+tercio = 1.0 / 3
+print("Un tercio es %f" % tercio)
+print("Un tercio es %.2f" % tercio)
+
+
+nombre= input("Escriba su nombre, por favor: ")
+print("Hola" + nombre)
